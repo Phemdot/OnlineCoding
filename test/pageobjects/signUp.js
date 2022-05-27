@@ -31,9 +31,13 @@ class SignUp extends Base{
         return $('[name="new-password"]');
     }
 
+    get referralSource(){
+        return $('[class="MuiFormControl-root MuiFormControl-fullWidth css-jxqpv3"]');
+    }
+
 
     get submitButton(){
-        return $('[class="#root > div:nth-child(2) > div.sign-up-layout-content > main > div > form > div > button');
+        return $('[class="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeLarge MuiButton-containedSizeLarge MuiButton-fullWidth MuiButtonBase-root  css-1je55d8"]');
     }
 
 
@@ -43,7 +47,7 @@ class SignUp extends Base{
 
     async clickSignUpButton(){
         await this.signUpLink.click();
-        await expect(browser).toHaveUrl('https://app.deel.training/signup');
+        await expect(browser).toHaveUrl('https://app.deel.training/signup'); //verify user is on signup page
     }
 
     async selectBusiness(){
@@ -69,6 +73,12 @@ class SignUp extends Base{
     async fillInPassword(password){
         await this.password.setValue(password);
         
+    }
+
+    async indicateReferralSource(){
+        await this.referralSource.click();
+        await browser.keys("Enter");
+        await expect(this.submitButton).toBeClickable(); //verify user can click sign up button
     }
 
 
