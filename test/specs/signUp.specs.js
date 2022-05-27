@@ -13,6 +13,7 @@ describe('sign up with valid cred', ()=> {
         await signUp.fillInLastName("Jerry");
         await signUp.fillInEmailAddress("markjerry@yarn.org");
         await signUp.fillInPassword("markpasS#1");
+        await signUp.indicateReferralSource();
     }); 
        
     
