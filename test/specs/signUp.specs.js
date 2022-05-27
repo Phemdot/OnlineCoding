@@ -2,9 +2,9 @@ const signUp = require('../pageobjects/signUp');
 
 
 
-describe('sign up with valid cred', ()=> {
+describe('Sign Up', ()=> {
     
-    it('signUp', async ()=> {
+    it('signUp with valid cred', async ()=> {
         await signUp.open();
         await signUp.clickSignUpButton();
         await signUp.selectBusiness();
