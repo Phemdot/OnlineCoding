@@ -43,6 +43,7 @@ class SignUp extends Base{
 
     async clickSignUpButton(){
         await this.signUpLink.click();
+        await expect(browser).toHaveUrl('https://app.deel.training/signup');
     }
 
     async selectBusiness(){
@@ -52,6 +53,25 @@ class SignUp extends Base{
     async clickNextButton(){
         await this.nextButton.click();
     }
+
+    async fillInFirstName(firstname){
+        await this.firstName.setValue(firstname);
+    }
+
+    async fillInLastName(lastname){
+        await this.lastName.setValue(lastname);
+    }
+
+    async fillInEmailAddress(email){
+        await this.email.setValue(email);
+    }
+
+    async fillInPassword(password){
+        await this.password.setValue(password);
+        
+    }
+
+
 
 
 }
